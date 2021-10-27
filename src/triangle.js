@@ -52,7 +52,8 @@ class Triangle extends Polygon {
    * must set the name to 'Triangle'
    */
   constructor(sides) {
-    // write your code here
+    super(sides);
+    this.name = 'Triangle';
   }
 
   /**
@@ -73,7 +74,14 @@ class Triangle extends Polygon {
    * than the length of the third side.
    */
   isValid() {
-    // write your code here
+    return (
+      Array.isArray(this.sides) &&
+      this.count() === 3 &&
+      this.sides.every((num) => num > 0) &&
+      this.sides[0] < this.sides[1] + this.sides[2] &&
+      this.sides[1] < this.sides[2] + this.sides[0] &&
+      this.sides[2] < this.sides[0] + this.sides[1]
+    );
   }
 }
 
